@@ -1,0 +1,27 @@
+
+<div id="convodisplay" class="col-xs-12 col-sm-12 col-md-12">
+  <div class="row">
+    <% @convos.each do |convo| %>
+        <div class="col-xs-6 col-sm-4 col-md-2">
+          <div class="thumbnail">
+            <%= link_to image_tag(convo.img_url), convo.url, :target => "_blank" %>
+            <div class="caption voting-caption">
+              <%= link_to root_path(:downvotes => convo.downvotes, :id => convo.id), :class => "pull-left", :id => "downvotes" do %>
+              	<span class="glyphicon glyphicon-hand-down"></span>
+              <% end %>
+              <span class="pull-left" id="downvotes">&nbsp<%= number_with_precision(convo.downvotes, precision: 0) %></span>
+              <%= link_to root_path(:upvotes => convo.upvotes, :id => convo.id), :class => "pull-right", :id => "upvotes" do %>
+              	<span class="glyphicon glyphicon-hand-up"></span>
+              <% end %>
+              <span class="pull-right" id="upvotes"><%= number_with_precision(convo.upvotes, precision: 0) %>&nbsp</span>
+            </div>
+            <div class="caption link-caption">
+              <%= link_to "Check It Out!", convo.url, :target => "_blank", :class => "text-center" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<br>

@@ -1,0 +1,33 @@
+<%= form_for(@convo, :html => { :multipart => true }) do |f| %>
+  <% if @convo.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@convo.errors.count, "error") %> prohibited this convo from being saved:</h4>
+
+      <ul>
+      <% @convo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="stripe_error" class="alert alert-danger" style="display:none"> 
+    <noscript>Javascript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
+
+  <div class="form-group col-md-7">
+    <%= f.label :url, "*URL" %>
+    <%= f.url_field :url, :placeholder => 'Ex: https://www.jcrew.com/mens_category/sweaters/cotton/PRDOVR~C4089/C4089.jsp?color_name=marled-grey', class: "form-control" %>
+  </div>
+
+  <!--<div class="form-group col-md-7">
+    <%= f.label :color, "Color (Optional)" %>
+    <%= f.text_field :color, :placeholder => 'Ex: Marbled Grey', class: "form-control" %>
+  </div>-->
+
+  <div class="form-group col-md-12 left">
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  </div>
+  
+<% end %>

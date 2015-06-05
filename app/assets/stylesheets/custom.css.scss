@@ -1,0 +1,34 @@
+@import "bootstrap";
+@import 'bootstrap/glyphicons';
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+body {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #00a0ff;
+}
+
+.vote-caption {
+
+}
+
+.link-caption {
+	text-align: center;
+}
+
+#upvotes {
+	color: #82e519;
+}
+
+#downvotes {
+	color: #ff0000;
+}
+
+#convo_links {
+	text-align: center;
+}
+
+
+
